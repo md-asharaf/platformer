@@ -1,32 +1,45 @@
-# React + TypeScript + Vite
+# Quiz Platformer Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+An interactive, responsive HTML5 Canvas game built with React, Vite, and TypeScript. 
 
-Currently, two official plugins are available:
+## Features
+- **Platformer Mechanics:** Jump over incorrect answers and land on the correct one.
+- **Dynamic Questions:** Fetches trivia/quiz questions from an external API.
+- **Powerups:** 
+  - **50/50:** Removes two incorrect options.
+  - **Hint:** Displays a hint to help you guess the right answer.
+- **Fully Responsive:** Beautifully adapts to desktop and mobile screens with custom tailored UI.
+- **Retro Audio Feedback:** Fully synthesized retro game sounds (jumping, correct, wrong) using the native Web Audio API (no external sound files required).
+- **Gamified UI:** Fully styled HUD with pixel-perfect spacing, drop-shadows, and a responsive layout that frames the canvas.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Getting Started
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+First, install dependencies:
+```bash
+npm install
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Start the development server:
+```bash
+npm run dev
+```
+The game will run locally on `http://localhost:3000`.
+
+## Environment Variables
+
+Copy `.env.example` to `.env` (if applicable) and configure your API endpoint. The game expects an API serving JSON trivia questions matching the `QuizQuestion` type defined in `src/types/api.ts`.
+
+## Build & Deploy
+
+Build the production app:
+```bash
+npm run build
+```
+This generates the optimized bundle in the `dist` folder. You can test it locally with `npm run preview`.
+
+## Technologies Used
+- React (Hooks, State Management)
+- HTML5 Canvas API (Custom Physics & Drawing loop)
+- TypeScript (Strict typing for game entities and API responses)
+- CSS3 (Flexbox, Media Queries for Responsive Design)
+- Web Audio API (Synthesized SFX)
