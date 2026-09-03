@@ -102,7 +102,7 @@ function App() {
     const currentQ = questions[currentQuestionIndex];
     if (!currentQ || removedOptions.length > 0) return;
 
-    const incorrectOptions = currentQ.options.filter(o => o !== currentQ.answer.value);
+    const incorrectOptions = currentQ.options.filter(o => o !== currentQ.answer);
     const toRemove = incorrectOptions.sort(() => 0.5 - Math.random()).slice(0, 2);
     setRemovedOptions(toRemove);
   };
@@ -137,7 +137,7 @@ function App() {
             </div>
 
             <div className="hud-center" style={{ textAlign: 'center', flex: 1, margin: '0 20px', minWidth: 0 }}>
-              <h2 style={{ fontSize: '1.2rem', marginBottom: '15px', wordBreak: 'break-word', maxWidth: '800px', margin: '0 auto 15px auto' }}>{currentQ?.prompt.value}</h2>
+              <h2 style={{ fontSize: '1.2rem', marginBottom: '15px', wordBreak: 'break-word', maxWidth: '800px', margin: '0 auto 15px auto' }}>{currentQ?.question}</h2>
               <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '15px', width: '100%', maxWidth: '900px', margin: '0 auto' }}>
                 {currentQ?.options.map((opt, idx) => {
                   const letters = ['A', 'B', 'C', 'D'];
@@ -194,7 +194,7 @@ function App() {
                   Score: <strong style={{ color: 'var(--primary)' }}>{score}</strong> &nbsp;|&nbsp; Streak: {streak}
                 </div>
               </div>
-              <h2 style={{ fontSize: '1rem', marginBottom: '10px', wordBreak: 'break-word', textAlign: 'center', fontWeight: 'bold', color: '#fff' }}>{currentQ?.prompt.value}</h2>
+              <h2 style={{ fontSize: '1rem', marginBottom: '10px', wordBreak: 'break-word', textAlign: 'center', fontWeight: 'bold', color: '#fff' }}>{currentQ?.question}</h2>
 
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
                 {currentQ?.options.map((opt, idx) => {
@@ -281,7 +281,7 @@ function App() {
         {showHint && (
           <div className="game-panel animate-fade-in" style={{ padding: '30px', position: 'absolute', zIndex: 10, pointerEvents: 'auto' }}>
             <h3 style={{ marginBottom: '15px' }}>Hint</h3>
-            <p>{currentQ?.hint?.value}</p>
+            <p>{currentQ?.hint}</p>
             <button className="retro-btn" style={{ marginTop: '20px' }} onClick={() => setShowHint(false)}>Close</button>
           </div>
         )}

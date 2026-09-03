@@ -99,7 +99,7 @@ export const GameCanvas: React.FC<GameCanvasProps> = ({ question, onAnswer, game
             width: 30 * sizeScale, // Scaled box width
             height: 40 * sizeScale,
             text: letters[index] || '?',
-            isCorrect: opt === question.answer.value,
+            isCorrect: opt === question.answer,
             isFading: false,
             alpha: 1,
             scale: 1,

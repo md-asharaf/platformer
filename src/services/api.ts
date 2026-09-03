@@ -24,20 +24,20 @@ export const fetchQuestions = async (): Promise<QuizQuestion[]> => {
 const generateMockQuestions = (): QuizQuestion[] => {
   return [
     {
-      prompt: { label: "Question 1", value: "What is 2 + 2?" },
-      answer: { label: "Answer", value: "4" },
-      hint: { label: "Hint", value: "It's an even number." },
+      question: "What is 2 + 2?",
+      answer: "4",
+      hint: "It's an even number.",
       options: ["3", "4", "5", "6"],
     },
     {
-      prompt: { label: "Question 2", value: "What is the capital of France?" },
-      answer: { label: "Answer", value: "Paris" },
+      question: "What is the capital of France?",
+      answer: "Paris",
       options: ["London", "Berlin", "Paris", "Madrid"],
     },
     {
-      prompt: { label: "Question 3", value: "Which planet is known as the Red Planet?" },
-      answer: { label: "Answer", value: "Mars" },
-      hint: { label: "Hint", value: "Named after the Roman god of war." },
+      question: "Which planet is known as the Red Planet?",
+      answer: "Mars",
+      hint: "Named after the Roman god of war.",
       options: ["Venus", "Mars", "Jupiter", "Saturn"],
     }
   ];
